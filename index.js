@@ -289,6 +289,7 @@ const SearchModal = React.forwardRef(function SearchModel(props, ref) {
         showCloseIcon={true}
         closeOnEscape={true}
         visible={modalShow}
+        close={dialogClose}
         header="Search Active and Un-Scheduled Jobs"
         buttons={dialogButtons}
       >
