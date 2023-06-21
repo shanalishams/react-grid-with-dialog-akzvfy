@@ -122,6 +122,7 @@ const SearchModal = React.forwardRef(function SearchModel(props, ref) {
       const lEndDate = fromToDateRangeRef.current?.endDate.toDateString();
       queryString = `${searchCriteriaRef.current?.value}=${searchTerm}&startDate=${lStarDate}&endDate=${lEndDate}`;
     }
+
     await dispatcher(getSearchSchedulerTasks(queryString));
   };
 

@@ -6,7 +6,8 @@ export const schedulerAPI = {
    */
   async getSearchSchedulerTasks(queryString) {
     const url = `${SCHEDULER_V2_ROOT}/tasks/search?${queryString}`;
-    return await new Promise((resolve, reject) => {
+    
+    return new Promise((resolve, reject) => {
       resolve([
         {
           JobNumber: '822255',

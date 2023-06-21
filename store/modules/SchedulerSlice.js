@@ -175,7 +175,10 @@ export const getSearchSchedulerTasks = createAsyncThunk(
       dispatch(SET_SEARCH_SCHEDULER_TASKS({ schedulerTasks: [] }));
 
       const response = await schedulerAPI.getSearchSchedulerTasks(args);
-      const schedulerTasks = response.data.data;
+
+      console.info(response);
+
+      const schedulerTasks = response;
       dispatch(SET_SEARCH_SCHEDULER_TASKS({ schedulerTasks }));
     } catch (error) {
       const message = Utility._getErrorMessage(error);
