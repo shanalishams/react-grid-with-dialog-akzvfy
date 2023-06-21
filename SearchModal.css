@@ -1,0 +1,14 @@
+.search-modal .e-dlg-content {
+  overflow-x: auto !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+.e-grid .e-altrow {
+  background-color: #f2f2f2;
+}
+.e-excel-ascending,
+.e-excel-descending,
+.e-separator.e-excel-separator {
+  display: none;
+}
+/*# sourceMappingURL=SearchModal.css.map */
