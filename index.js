@@ -258,8 +258,28 @@ const SearchModal = React.forwardRef(function SearchModel(props, ref) {
 
   /* END: Syncfusion Grid Functions */
 
+  const [modalShow, setShow] = React.useState(true);
+
+  const onOverlayClick = () => {
+    setShow(false);
+  };
+  const dialogClose = () => {
+    setShow(false);
+  };
+  const handleClick = () => {
+    setShow(true);
+  };
+
   return (
-    <>
+    <div className="control-pane" style={{ width: '99%' }}>
+      <button
+        className="e-control e-btn"
+        id="targetButton1"
+        role="button"
+        onClick={handleClick}
+      >
+        Open
+      </button>
       <DialogComponent
         className={'search-modal'}
         id={'searchModalMainWindow'}
@@ -268,7 +288,7 @@ const SearchModal = React.forwardRef(function SearchModel(props, ref) {
         }}
         showCloseIcon={true}
         closeOnEscape={true}
-        visible={true}
+        visible={modalShow}
         header="Search Active and Un-Scheduled Jobs"
         buttons={dialogButtons}
       >
@@ -472,7 +492,7 @@ const SearchModal = React.forwardRef(function SearchModel(props, ref) {
           </div>
         )}
       </DialogComponent>
-    </>
+    </div>
   );
 });
 
