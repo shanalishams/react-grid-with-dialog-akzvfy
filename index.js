@@ -1,4 +1,9 @@
 import React from 'react';
+import { createRoot } from 'react-dom/client';
+
+import { Provider } from 'react-redux';
+import { store } from './store';
+
 import './SearchModal.css';
 import { useAppDispatch, useAppSelector } from './hooks/hooks';
 import {
@@ -49,9 +54,8 @@ const SearchModal = React.forwardRef(function SearchModel(props, ref) {
   const searchCriteriaRef = React.useRef();
   const searchResultGridRef = React.useRef();
 
-  const [searchInput, setSearchInput] = React.useState < string > '';
-  const [searchCriteria, setSearchCriteria] =
-    React.useState < string > 'customerName';
+  const [searchInput, setSearchInput] = React.useState('');
+  const [searchCriteria, setSearchCriteria] = React.useState('customerName');
 
   const ADVANCE_OPTION = 7;
 
@@ -63,12 +67,13 @@ const SearchModal = React.forwardRef(function SearchModel(props, ref) {
     { id: ADVANCE_OPTION, text: 'Advanced Option' },
   ];
 
-  const [maxDuration] = React.useState < number > 180;
-  const [currentDuration, setCurrentDuration] = React.useState < number > 1;
+  const [maxDuration] = React.useState(180);
+  const [currentDuration, setCurrentDuration] = React.useState(1);
   const [fromToDateRange, setFromToDateRange] = React.useState();
-  const [startDate, setStartDate] = React.useState < Date > moment().toDate();
-  const [endDate, setEndDate] =
-    React.useState < Date > moment().add(1, 'months').toDate();
+  const [startDate, setStartDate] = React.useState(moment().toDate());
+  const [endDate, setEndDate] = React.useState(
+    moment().add(1, 'months').toDate()
+  );
 
   const mainCriteria = [
     { id: 'customerName', text: 'Customer Name/Contact' },
@@ -470,4 +475,10 @@ const SearchModal = React.forwardRef(function SearchModel(props, ref) {
     </>
   );
 });
-export default SearchModal;
+
+const root = createRoot(document.getElementById('sample'));
+root.render(
+  <Provider store={store}>
+    <SearchModal />{' '}
+  </Provider>
+);
