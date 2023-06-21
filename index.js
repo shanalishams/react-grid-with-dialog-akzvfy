@@ -38,7 +38,6 @@ import {
   DateRangePickerComponent,
 } from '@syncfusion/ej2-react-calendars';
 import moment from 'moment';
-import { toast } from 'react-toastify';
 import { DialogComponent } from '@syncfusion/ej2-react-popups';
 
 const SearchModal = React.forwardRef(function SearchModel(props, ref) {
@@ -111,31 +110,6 @@ const SearchModal = React.forwardRef(function SearchModel(props, ref) {
 
   const searchSchedulerTasks = async (searchTerm) => {
     let queryString;
-    if (searchTerm.length < 3) {
-      toast.info('Search should be at least 3 characters.', {
-        autoClose: 5000,
-        closeOnClick: true,
-        draggable: true,
-        hideProgressBar: false,
-        pauseOnHover: true,
-        position: 'bottom-right',
-        progress: undefined,
-        theme: 'light',
-      });
-      return;
-    } else if (searchTerm.length > 300) {
-      toast.info('Search should be less then 300 characters.', {
-        autoClose: 5000,
-        closeOnClick: true,
-        draggable: true,
-        hideProgressBar: false,
-        pauseOnHover: true,
-        position: 'bottom-right',
-        progress: undefined,
-        theme: 'light',
-      });
-      return;
-    }
 
     searchTerm = encodeURIComponent(searchTerm);
 
